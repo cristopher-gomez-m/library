@@ -1,0 +1,28 @@
+<!-- Button trigger modal   -->
+<mat-card>
+  <div class="modal-header">
+    <h5 class="modal-title">Inicio de sesión</h5>
+    <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+  </div>
+    <form [formGroup]="usuarioLogin" (ngSubmit)="onSubmit()">
+      <mat-form-field class="campos-field">
+        <input type="email" matInput placeholder="Usuario" formControlName="usuario">
+        <mat-error *ngIf="usuarioLogin.controls.usuario.hasError('required')">Ingrese
+          un correo
+        </mat-error>
+          <mat-error *ngIf="usuarioLogin.controls.usuario.hasError('pattern')">Este no 
+            es un correo válido
+          </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="campos-field">
+        <input type="password" matInput placeholder="Password" formControlName="password">
+        <mat-error *ngIf="usuarioLogin.controls.password.hasError('required')">Ingrese
+          una contraseña
+        </mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button [disabled]="!usuarioLogin.valid">Aceptar</button>
+    </form>
+  </mat-card>
+

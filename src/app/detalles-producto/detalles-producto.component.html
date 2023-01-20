@@ -1,0 +1,114 @@
+
+<div class="back"><h4 fontIcon="book" >Detalles de los libros</h4> </div>
+
+<br>
+<div style="text-align: right; margin-top: 10px; "  class="container">
+<button (click)="clickAggLibro()" type="button" class="btn btn-outline-success"  class="btn btn-success" id="agg" data-bs-toggle="modal" data-bs-target="#exampleModal"  > <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon> Agregar</button> 
+</div><br><br>
+
+<div class="container">
+<div style="margin-top: 10px;">
+<mat-form-field id="buscar">  
+  <input matInput (keyup)="applyFilter($event)" placeholder="Buscar..." #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8 content-table" >
+<table mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> <mat-icon aria-hidden="false" color="black" aria-label="Example home icon" fontIcon="key"></mat-icon>Id </th>
+    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="book"></mat-icon> Nombre </th>
+    <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+  </ng-container>
+
+   <ng-container matColumnDef="precio">
+    <th mat-header-cell *matHeaderCellDef > <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="money"></mat-icon> Precio </th>
+    <td mat-cell *matCellDef="let row"> {{row.precio}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edicion">
+    <th mat-header-cell *matHeaderCellDef> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="editorial"></mat-icon> Edición </th>
+    <td mat-cell *matCellDef="let row"> {{row.edicion}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="estado">
+    <th mat-header-cell *matHeaderCellDef> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="report"></mat-icon>Estado </th>
+    <td mat-cell *matCellDef="let row"> {{row.estado}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="notas_adicionales">
+    <th mat-header-cell *matHeaderCellDef> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="notes"></mat-icon> Notas Adicionales</th>
+    <td mat-cell *matCellDef="let row"> {{row.notas_adicionales}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef> <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="share"></mat-icon> Acciones </th>
+    <td mat-cell *matCellDef="let row">
+      <button (click)="editar(row)"  type="button" class="btn btn-outline-primary" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  id="edit" > <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>Editar</button> 
+   </td>
+  </ng-container>
+
+  <tr style="background-color: #979191;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>  
+  
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+  </tr>
+</table> 
+<mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+</div>
+</div>
+
+ <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 *ngIf="mostrarAgg" class="modal-title" id="exampleModalLabel">Agregar </h5>
+        <h5 *ngIf="mostrarAct" class="modal-title" id="exampleModalLabel">Edición </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]="libroG">
+            <div class="mb-3">
+              <img *ngIf="mostrarAgg" src="https://pymstatic.com/14375/conversions/libros-psicologia-wide.jpg" width="450px"  height="200px" alt="Photo of a Shiba Inu">
+              <img *ngIf="mostrarAct" src="https://librosobrelibro.com/wp-content/uploads/2022/02/Copia-de-Cream-and-Blue-72x36-Landscape-Voter-Eduction-Banner-scaled.jpg" width="450px"  height="200px" alt="Act">
+            </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Id</label>
+                <input type="text" formControlName="id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Nombre</label>
+                <input type="text" formControlName="nombre" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Precio</label>
+                <input type="text" formControlName="precio" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Edición</label>
+                  <input type="text" formControlName="edicion" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Estado</label>
+                  <input type="select" formControlName="estado" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Notas Adicionales</label>
+                  <input type="text" formControlName="notas_adicionales" class="form-control" id="exampleInputPassword1">
+                </div>          
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button"  *ngIf="mostrarAgg" (click)="postLibroD()" class="btn btn-primary">Guardar</button>
+          <button type="button"  *ngIf="mostrarAct" (click)="actualizarPostLibroD()" class="btn btn-primary">Actualizar</button>
+    </div>
+  </div>
+</div>
+

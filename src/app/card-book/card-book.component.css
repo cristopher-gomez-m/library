@@ -1,0 +1,22 @@
+img{
+    display: block;
+}
+
+.card-body{
+    width: 300px;
+    margin: 10px;
+}
+
+.button{
+    margin: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Estilos específicos para pantallas menores a 600px */
+    .card-body{
+        width: auto;
+        margin: 10px;
+    }
+
+    /* Otros estilos */
+  }

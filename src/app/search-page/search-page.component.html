@@ -1,0 +1,9 @@
+<app-search-engine></app-search-engine>
+<div *ngIf="books.length<=0">
+    <h2>Ningún libro encontrado</h2>
+</div>
+<div class="contenedor" *ngIf="books.length>=0">
+    <div *ngFor="let item of books;">
+        <app-card-book [libro]="item"></app-card-book>
+    </div>
+</div>

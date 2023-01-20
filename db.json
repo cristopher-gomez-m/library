@@ -1,0 +1,59 @@
+{
+  "posts": [
+    {
+      "id": 1,      
+      "nombre": "Don Quijote de la Mancha",
+      "precio": "$15.90",
+      "edicion": "Madrid, 1911-1913",
+      "estado": "Disponible",
+      "notas_adicionales": "Narra hechos reales o ficticios"
+    },
+    {
+      "id": 2,      
+      "nombre": "La Odisea",
+      "precio": "$30.50",
+      "edicion": "Carvajal Lozano",
+      "estado": "Disponible",
+      "notas_adicionales": "Considerada una obra maestra de la literatura clásica"
+    },
+    {
+      "id": 3,      
+      "nombre": "El principito",
+      "precio": "$19.00",
+      "edicion": "Barcelona, 2003",
+      "estado": "No disponible",
+      "notas_adicionales": "Fábula sobre crecimiento personal para redescubrir lo que de verdad importa"
+    },
+    {
+      "id": 4,
+      "nombre": "Cien años de soledad",
+      "precio": "$32.90",
+      "edicion": "Edición 50 Aniversario : García Márquez",
+      "estado": "Disponible",
+      "notas_adicionales": "Relata la historia de una aldea imaginaria"
+    },
+    {
+      "id": 5,
+      "nombre": "Cuento de Hadas",
+      "precio": "$35.50",
+      "edicion": "2022",
+      "estado": "Disponible",
+      "notas_adicionales": "Historia de fantasía cuyo héroe tendrá que librar una batalla entre el bien y el mal"
+    },
+    {
+      "id": 6,
+      "nombre": "Harry Potter y la piedra filosofal",
+      "precio": "$20.50",
+      "edicion": "Scholastic Corporation, UK, 1997",
+      "estado": "Disponible",
+      "notas_adicionales": "Primer libro de la heptalogía acerca del joven mago Harry Potter"
+    },
+    {
+      "id": 7,
+      "nombre": "El Diario de Ana Frank",
+      "precio": "$35.50",
+      "edicion": "1947",
+      "estado": "No disponible",
+      "notas_adicionales": "Testimonio único en su género sobre el horror y la barbarie nazi"
+    }]
+}

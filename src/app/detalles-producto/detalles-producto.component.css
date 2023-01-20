@@ -1,0 +1,55 @@
+table {
+    width: 100%;
+  }
+
+
+ .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .img {
+    width: 450px;
+    height: 200px;
+  }
+
+  h4{
+    text-align: center;
+    background-color: #000000;
+    background-size: 100%;
+    color: #f0f8ff;
+  }
+
+  .back{
+    background-color: #000000;
+    height: 160;
+  }
+
+ #edit{
+    border-color: #0000ff;
+  }
+
+  #agg{
+    border-color: #136e18;
+    text-align: right;
+  }
+
+  #buscar{
+    font-size: 20px;
+  }
+
+  table {
+    border: solid 1px #000000;
+  }
+
+  th{
+    background-color: #0000ff;
+  }
+
+  .content-table thead tr{
+    background-color: #0000ff;
+    color: #f0f8ff;
+  }
+  
+
+ 

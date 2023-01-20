@@ -1,0 +1,58 @@
+.carousel{
+    width: 30%;
+}
+.asd{
+    display: flex;
+    margin: 50px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buscador{
+    display: inline-block;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    align-content: center;
+    align-items: right;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+}
+
+.c1{
+    margin: 0px;
+    max-width: 100%;
+    background-color: #c7d8e0 ;
+}
+
+h2{
+    margin-top: 5%;
+    color: #ffffff;
+}
+
+.container{
+    background-color: #000000 ;
+    width: 150%;
+    margin: 0px;
+    max-width: 100%;
+}
+
+img{
+    height: 500px;
+}
+
+div.c2, div.c3, div.c4{
+    background-color: #000000;
+}
+
+
+@media only screen and (max-width: 600px) {
+    /* Estilos específicos para pantallas menores a 600px */
+    .carousel{
+        width: 70%;
+    }
+
+    /* Otros estilos */
+  }

@@ -1,0 +1,16 @@
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Estilos específicos para pantallas menores a 600px */
+    .contenedor{
+    display: flex;
+     flex-wrap: wrap;
+    flex-direction: column;
+    }
+    
+    /* Otros estilos */
+  } 

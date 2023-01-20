@@ -1,0 +1,43 @@
+<div class="container">
+	<img src="https://www.cloudtalk.io/wp-content/uploads/2021/12/pipedrive-integrations-1024x614.jpeg.webp"
+		width="100%">
+</div>
+<div class="c1">
+	<div class="buscador">
+		<div class="contenedor">
+			<app-search-engine></app-search-engine>
+		</div>
+	</div>
+</div>
+<div class="cont">
+	<div class="c2">
+		<div class="asd">
+			<h2>Recomendaciones</h2>
+			<ngb-carousel class="carousel" *ngIf="books">
+				<ng-template *ngFor="let item of books;" ngbSlide>
+					<app-card [libro]="item"></app-card>
+				</ng-template>
+			</ngb-carousel>
+		</div>
+	</div>
+	<div class="c3">
+		<div class="asd">
+			<h2>Libros para niños</h2>
+			<ngb-carousel class="carousel" *ngIf="child">
+				<ng-template *ngFor="let item of child;" ngbSlide>
+					<app-card [libro]="item"></app-card>
+				</ng-template>
+			</ngb-carousel>
+		</div>
+	</div>
+	<div class="c4">
+		<div class="asd">
+			<h2>Libros de Aventura</h2>
+			<ngb-carousel class="carousel" *ngIf="avent">
+				<ng-template *ngFor="let item of avent;" ngbSlide>
+					<app-card [libro]="item"></app-card>
+				</ng-template>
+			</ngb-carousel>
+		</div>
+	</div>
+</div>
