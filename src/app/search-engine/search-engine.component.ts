@@ -11,16 +11,27 @@ import { BookFinderService } from '../services/book-finder.service';
 export class SearchEngineComponent {
   @Input() name: String = '';
   constructor(private bookFinder: BookFinderService, private router: Router) {}
-  books: Book[] = this.bookFinder.getBooks();
-  child: Book[] = this.bookFinder.getChild();
-  avent: Book[] = this.bookFinder.getAvent();
+
+  filteredBooks: Book[]=[];
   onNameChange() {
     console.log(this.name);
   }
-
-  submit() {
-    this.bookFinder.filterBooks(this.name);
-    console.log(this.bookFinder.filteredBooks);
+ async filterBooks(title:String){
+    const dataget ={
+      title: title,
+      transaccion: "CONSULTAR_LIBRO_NOMBRE"
+    };
+     this.bookFinder.getData<Book[]>(dataget).subscribe(
+      async (response) => {
+        this.filteredBooks =  Object.values(response) as Book[];
+        this.bookFinder.filteredBooks=  Object.values(response) as Book[];
+        console.log(this.bookFinder.filteredBooks);
+        this.bookFinder.updateFilteredBooks();
+      }
+    );
+  }
+   submit() {
+    this.filterBooks(this.name);
     this.name = '';
     this.router.navigateByUrl('/search');
   }

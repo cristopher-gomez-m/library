@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   };
 
   correoUsuario:string='';
+  error:boolean=false;
    usuarioLogin = new FormGroup({
     usuario: new FormControl('',
     [Validators.required,
@@ -29,9 +30,7 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(){
-    this.cambioTexto(String(this.usuarioLogin.get('usuario')?.value));
-    this.router.navigate(['/cliente']);
-    this.dialogRef.close();
+    this.login(String(this.usuarioLogin.value.usuario),String(this.usuarioLogin.value.password));
   }
  
   cambioTexto(mensaje:string){
@@ -39,5 +38,26 @@ export class LoginComponent implements OnInit {
   }
   close(){
     this.dialogRef.close();
+  }
+
+  login=async (usuario:any,password:any)=>{
+    const dataget ={
+      usuario:usuario,
+      password:password,
+      transaccion: "CONSULTA_ID"
+    };
+     this.servicioComunicacion.getData(dataget).subscribe(
+      (response) => {
+        if(Array.isArray(response) && response.length > 0){
+          this.cambioTexto(response[0]);
+          console.log(response[0].usuario);
+          this.error=false;
+          this.dialogRef.close();
+        }
+        else{
+          this.error=true;
+        }
+      }
+    );
   }
 }

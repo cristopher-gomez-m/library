@@ -61,7 +61,8 @@ import { CatalogolibComponent } from './catalogolib/catalogolib.component';
     FormsModule,
     MatFormFieldModule,
     MatTableModule,
-    MatPaginatorModule 
+    MatPaginatorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

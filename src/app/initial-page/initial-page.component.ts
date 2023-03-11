@@ -10,23 +10,58 @@ import { BookFinderService } from '../services/book-finder.service';
 })
 export class InitialPageComponent implements OnInit{
   ngOnInit(): void {
-    console.log(this.books);
-    console.log(this.child);
-    console.log(this.avent);
+    this.recibirDatos();
+    this.recibirChild();
+    this.recibirAvent();
   }
   @Input() name:String="";
   constructor(private bookFinder:BookFinderService,private router: Router) { }
-  books : Book[]= this.bookFinder.getBooks();
-  child : Book[]= this.bookFinder.getChild();
-  avent : Book[]= this.bookFinder.getAvent();
+  books : Book[]= [];
+
+  child : Book[]= [];
+  avent : Book[]= [];
+  
   onNameChange() {
     console.log(this.name);
 }
 
-submit(){
-  console.log("funciona");
-  this.bookFinder.filterBooks(this.name);
-  console.log(this.bookFinder.filteredBooks);
+recibirDatos=async()=>{
+  const dataget ={
+    transaccion: "CONSULTA_GENERAL"
+  };
+   this.bookFinder.getData(dataget).subscribe(
+    (response) => {
+      this.books = Object.values(response) as Book[];
+    }
+  );
+}
+
+recibirChild=async()=>{
+  const dataget ={
+    categoria: {
+      id: 1005
+    },
+    transaccion: "CONSULTAR_LIBRO_CATEGORIA"
+  };
+   this.bookFinder.getData(dataget).subscribe(
+    (response) => {
+      this.child = Object.values(response) as Book[];
+    }
+  );
+}
+
+recibirAvent=async()=>{
+  const dataget ={
+    categoria: {
+      id: 1006
+    },
+    transaccion: "CONSULTAR_LIBRO_CATEGORIA"
+  };
+   this.bookFinder.getData(dataget).subscribe(
+    (response) => {
+      this.avent = Object.values(response) as Book[];
+    }
+  );
 }
   
 }
